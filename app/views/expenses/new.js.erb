@@ -1,4 +1,2 @@
-$('.modal-index').html('')
-var form = $('<%=  j (render "modal") %>')
-$('.modal-index').append(form)
-$('#myExpense').modal()
+$('.modal-body').html("<%=  j (render 'form') %>")
+$('#exampleModalCenter').modal();

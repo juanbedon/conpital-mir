@@ -1,42 +1,25 @@
-<div class="modal fade" id="myExpense" tabindex="-1" role="dialog" aria-labelledby="myExpenseLabel" show>
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header  bg-dark">
-        <h5 class="modal-title font-weight-bold" id="myExpenseLabel">New Expense</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color: white;">&times;</span>
-        </button>
-      </div>
-        <%= form_for @expense, remote: true do |f| %>
-          <div class="modal-body bg-dark">
-
-            <div class="form-group">
-              <%= f.label :transaction_type_id, "Transaction Type:" %>
-              <%= f.collection_select(:transaction_type_id, TransactionType.all, :id, :name, {}, class: " form-control") %>
-            </div>
-            <div class="form-group">
-              <%= f.label :date, "Date:" %>
-              <%= f.date_field :date, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :concept, "Concept:" %>
-              <%= f.text_field :concept, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :category_id, "Category:" %>
-              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
-            </div>
-            <div class="form-group">
-              <%= f.label :amount, "Amount:" %>
-              <%= f.number_field :amount, class: 'form-control' %>
-            </div>
-            <div class="action">
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="cerrar">Cerrar</button>
-              <%= f.submit "Create Expense", class: 'btn btn-info btn-block font-weight-bold' %>
-            </div>
-          <% end %>
-
-      </div>
-    </div>
+<%= form_for @expense, remote: true do |f| %>
+  <div class="form-group">
+    <%= f.label :transaction_type_id, "Transaction Type:" %>
+    <%= f.collection_select(:transaction_type_id, TransactionType.all, :id, :name, {}, class: " form-control") %>
   </div>
-</div>
+  <div class="form-group">
+    <%= f.label :date, "Date:" %>
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :concept, "Concept:" %>
+    <%= f.text_field :concept, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_id, "Category:" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
+  </div>
+  <div class="form-group">
+    <%= f.label :amount, "Amount:" %>
+    <%= f.number_field :amount, class: 'form-control' %>
+  </div>
+  <div>
+    <%= f.submit "Create Expense", class: 'btn btn-info btn-block font-weight-bold', id: 'formbutton' %>
+  </div>
+<% end %>zz
