@@ -1,24 +1,9 @@
-<thead>
-  <tr>
-    <th scope="col">Day</th>
-    <th scope="col">Concept</th>
-    <th scope="col">Category</th>
-    <th scope="col">Amount</th>
-    <th scope="col">Transaction Type</th>
-    <th scope="col">Edit</th>
-    <th scope="col">Remove</th>
-  </tr>
-</thead>
-<tbody class="table-body">
-  <tr>
-  <% @expenses.each do |expense| %>
-    <td><%= expense.date.strftime("%d %a") %></td>
-    <td><%= expense.concept %></td>
-    <td><%= expense.category.name %></td>
-    <td><%= number_to_currency(expense.amount) %></td>
-    <td><%= expense.transaction_type.name %></td>
-    <td><%= link_to 'Edit', edit_expense_path(expense), class: 'btn btn-sm btn-info' %></td>
-    <td><%= link_to "Remove", expense, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %></td>
-  </tr>
-</tbody>
-  <% end %>
+<tr>
+  <td><%= expense.date.strftime("%d %a") %></td>
+  <td><%= expense.concept %></td>
+  <td><%= expense.category.name %></td>
+  <td><%= number_to_currency(expense.amount) %></td>
+  <td><%= expense.transaction_type.name %></td>
+  <td><%= link_to 'Edit', edit_expense_path(expense), class: 'btn btn-sm btn-info' %></td>
+  <td><%= link_to "Remove", expense, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-sm btn-danger' %></td>
+</tr>

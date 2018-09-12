@@ -97,6 +97,7 @@ class ExpensesController < ApplicationController
 
   end
 
+
   private
 
     def expense_params

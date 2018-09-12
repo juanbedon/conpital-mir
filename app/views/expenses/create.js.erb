@@ -1,9 +1,10 @@
 <% if @expense.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('.table-body').append(' <%= j render expense %>');
+  $('.table-body').append(' <%= j render @expense %>');
   $('.alert-success').html("Expense added successfully").show();
-  $('#exampleModalCenter').modal('hide');
+  $('#exampleModalCenter').remove();
+  $('.modal-backdrop').remove();
 <% else %>
   // show first error
-  alert('<%= expense.errors.full_messages[0] %>');
+  alert('<%= @expense.errors.full_messages[0] %>');
 <% end %>
