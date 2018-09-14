@@ -13,7 +13,7 @@
 
             <%#= f.select(:transaction_type_id, options_for_select([['Purchase', TransactionType.find(1)], ['Withdrawal', TransactionType.find(2)], ['Transfer', TransactionType.find(3)], ['Payment', TransactionType.find(4)]]), { include_blank: true }, class: 'form-control' ) %>
 
-            <%= f.select :transaction_type_id, options_from_collection_for_select(TransactionType.all, "id", "name", @expense.transaction_type_id), class: "form-control" %>
+            <%#= f.select :transaction_type_id, options_from_collection_for_select(TransactionType.all, "id", "name", @expense.transaction_type_id), class: "form-control" %>
 
           </div>
           <div class="form-group">
@@ -29,8 +29,8 @@
             <%#= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
 
             <%#= f.select(:category_id, options_for_select([['Restaurant', Category.find(1)], ['Grocery', Category.find(2)], ['Car', Category.find(3)], ['Services', Category.find(4)], ['Home', Category.find(5)], ['Education', Category.find(6)], ['Fun', Category.find(7)], ['Travel', Category.find(8)]]), { include_blank: true }, class: 'form-control' ) %>
-            
-            <%= f.select :category_id, options_from_collection_for_select(Category.all, "id", "name", @expense.category_id), class: "form-control" %>
+
+            <%#= f.select :category_id, options_from_collection_for_select(Category.all, "id", "name", @expense.category_id), class: "form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :amount, "Amount:" %>
