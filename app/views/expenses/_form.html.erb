@@ -9,7 +9,7 @@
         <%= form_for @expense, remote: true do |f| %>
           <div class="form-group">
             <%= f.label :transaction_type_id, "Transaction Type:" %>
-            <%#= f.collection_select(:transaction_type_id, TransactionType.all, :id, :name, {}, class: " form-control") %>
+            <%= f.collection_select(:transaction_type_id, TransactionType.all, :id, :name, {}, class: " form-control") %>
 
             <%#= f.select(:transaction_type_id, options_for_select([['Purchase', TransactionType.find(1)], ['Withdrawal', TransactionType.find(2)], ['Transfer', TransactionType.find(3)], ['Payment', TransactionType.find(4)]]), { include_blank: true }, class: 'form-control' ) %>
 
@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
             <%= f.label :category_id, "Category:" %>
-            <%#= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
 
             <%#= f.select(:category_id, options_for_select([['Restaurant', Category.find(1)], ['Grocery', Category.find(2)], ['Car', Category.find(3)], ['Services', Category.find(4)], ['Home', Category.find(5)], ['Education', Category.find(6)], ['Fun', Category.find(7)], ['Travel', Category.find(8)]]), { include_blank: true }, class: 'form-control' ) %>
 
@@ -34,7 +34,7 @@
           </div>
           <div class="form-group">
             <%= f.label :amount, "Amount:" %>
-            <%= f.number_field :amount, class: 'form-control' %>
+            <%= f.number_field :amount, value: 0, min: 0, class: 'form-control' %>
           </div>
           <div class="modal-footer">
             <%= f.submit "Create Expense", class: 'btn btn-info btn-block font-weight-bold', id: 'formbutton' %>
