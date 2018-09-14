@@ -9,14 +9,7 @@
         <%= form_for @expense, remote: true do |f| %>
           <div class="form-group">
             <%= f.label :transaction_type_id, "Transaction Type:" %>
-
-            <%#= f.collection_select(:transaction_type_id, TransactionType.all, :id, :name, {}, class: " form-control") %>
-
-              <%= f.select :transaction_type_id do %>
-                <% [['Purchase', 1], ['Withdrawal', 2], ['Transfer', 3], ['Payment', 4]].each do |c| %>
-                  <%= content_tag(:option, c.first, value: c.last) %>
-                <% end %>
-              <% end %>
+            <%= f.collection_select(:transaction_type_id, TransactionType.all, :id, :name, {}, class: " form-control") %>
           </div>
           <div class="form-group">
             <%= f.label :date, "Date:" %>
@@ -28,14 +21,7 @@
           </div>
           <div class="form-group">
             <%= f.label :category_id, "Category:" %>
-
-            <%#= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
-
-            <%= f.select :category_id do %>
-              <% [['Restaurant', 1], ['Grocery', 2], ['Car', 3], ['Services', 4], ['Home', 5], ['Education', 6], ['Fun', 7], ['Travel', 8]].each do |c| %>
-                <%= content_tag(:option, c.first, value: c.last) %>
-              <% end %>
-            <% end %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, class: " form-control") %>
           </div>
           <div class="form-group">
             <%= f.label :amount, "Amount:" %>
