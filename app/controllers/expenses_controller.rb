@@ -13,7 +13,7 @@ class ExpensesController < ApplicationController
       @expenses = Expense.joins(:transaction_type, :category).where("transaction_types.name = ? AND categories.name = ?",
       transaction_type.capitalize, category.capitalize)
     else
-      @expenses = Expense.all
+      @expenses = current_user.expenses
     end
 
     @transaction_types = TransactionType.all
