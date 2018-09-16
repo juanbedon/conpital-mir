@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
 
   def index
-    @handler = DashboardHandler.new(Expense.all)
+    @handler = DashboardHandler.new(current_user.expenses)
     @amount_of_today = @handler.amount_of_today
     @amount_of_yesterday = @handler.amount_of_yesterday
     @amount_of_current_month = @handler.amount_of_current_month
