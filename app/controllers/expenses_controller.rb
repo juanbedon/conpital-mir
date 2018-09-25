@@ -3,42 +3,42 @@ class ExpensesController < ApplicationController
   def index
 
     if params["transaction_type"] && !params["category"]
-      @expenses = Expense.joins(:transaction_type).where("transaction_types.name = ?", params["transaction_type"].capitalize)
+      @expenses = current_user.expenses.joins(:transaction_type).where("transaction_types.name = ?", params["transaction_type"].capitalize)
     elsif params["category"] && !params["transaction_type"]
-      @expenses = Expense.joins(:category).where("categories.name = ?", params["category"].capitalize)
+      @expenses = current_user.expenses.joins(:category).where("categories.name = ?", params["category"].capitalize)
     elsif params["category"] && params["transaction_type"]
-      @expenses = Expense.joins(:transaction_type, :category).where("transaction_types.name = ? AND categories.name = ?",
+      @expenses = current_user.expenses.joins(:transaction_type, :category).where("transaction_types.name = ? AND categories.name = ?",
       params["transaction_type"].capitalize, params["category"].capitalize)
     else
       @expenses = current_user.expenses
     end
 
     if params["current_month"]
-      @expenses = Expense.where(date: 0.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 0.months.ago.all_month)
     elsif params["month_ago"]
-      @expenses = Expense.where(date: 1.month.ago.all_month)
+      @expenses = current_user.expenses.where(date: 1.month.ago.all_month)
     elsif params["two_months_ago"]
-      @expenses = Expense.where(date: 2.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 2.months.ago.all_month)
     elsif params["three_months_ago"]
-      @expenses = Expense.where(date: 3.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 3.months.ago.all_month)
     elsif params["four_months_ago"]
-      @expenses = Expense.where(date: 4.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 4.months.ago.all_month)
     elsif params["five_months_ago"]
-      @expenses = Expense.where(date: 5.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 5.months.ago.all_month)
     elsif params["six_months_ago"]
-      @expenses = Expense.where(date: 6.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 6.months.ago.all_month)
     elsif params["seven_months_ago"]
-      @expenses = Expense.where(date: 7.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 7.months.ago.all_month)
     elsif params["eight_months_ago"]
-      @expenses = Expense.where(date: 8.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 8.months.ago.all_month)
     elsif params["nine_months_ago"]
-      @expenses = Expense.where(date: 9.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 9.months.ago.all_month)
     elsif params["ten_months_ago"]
-      @expenses = Expense.where(date: 10.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 10.months.ago.all_month)
     elsif params["eleven_months_ago"]
-      @expenses = Expense.where(date: 11.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 11.months.ago.all_month)
     elsif params["twelve_months_ago"]
-      @expenses = Expense.where(date: 12.months.ago.all_month)
+      @expenses = current_user.expenses.where(date: 12.months.ago.all_month)
     end
 
   end
